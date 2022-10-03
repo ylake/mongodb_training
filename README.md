@@ -1,1 +1,3 @@
-# mongodb_training
+# Introduction
+
+Repository for MongoDB Training Samples.
