@@ -17,6 +17,7 @@ db.employee.insertOne({
     dept: "Database",
     joinDate: new ISODate("2022-10-05"),
     salary: 400000,
+    bonus: null
 });
 ```
 
@@ -31,6 +32,7 @@ db.employee.insertMany([
         joinDate: new ISODate("1999-11-15"),
         salary: 10000,
         resignationDate: new ISODate("2002-12-23"),
+        bonus: null
     },
     {
         name: "river",
@@ -82,9 +84,18 @@ db.employee.updateOne(
 
 ```javascript
 db.employee.updateMany(
-    { resignationDate: { $exists: false } },
+    { resignationDate: { $exists: false }, joinDate: { $exists: true } },
     {
         $mul: { salary: Decimal128("1.1") },
+    }
+);
+```
+
+```javascript
+db.employee.updateMany(
+    { resignationDate: { $exists: false }, bonus: null },
+    {
+        $set: { bonus: 100000 },
     }
 );
 ```
@@ -105,4 +116,33 @@ db.employee.deleteMany({});
 
 ```javascript
 db.employee.drop();
+```
+
+### Find All
+```javascript
+use sample_guides
+db.planets.find();
+db.planets.find({});
+```
+
+### Find with Operators
+```javascript
+db.planets.find({name: "Mars"});
+
+db.planets.find({hasRings: true, orderFromSun: {$lte: 6}})
+db.planets.find({
+    $and: [
+        {hasRings: true},
+        {orderFromSun: {$lte: 6}}
+    ]
+})
+
+db.planets.find({
+    $or: [
+        {hasRings: {$ne: false}},
+        {surfaceTempatureC.mean: {$mod: [2, 0]}}
+    ]
+})
+
+db.planets.find({mainAtmosphere: {$in: ['O2']}})
 ```
