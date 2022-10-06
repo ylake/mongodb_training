@@ -11,7 +11,7 @@ MongoDB Atlas에서 5.0버전을 사용한다.
 ### Insert One
 
 ```javascript
-db.employee.insertOne({
+db.employees.insertOne({
     name: "lake",
     age: 21,
     dept: "Database",
@@ -24,7 +24,7 @@ db.employee.insertOne({
 ### Insert Many
 
 ```javascript
-db.employee.insertMany([
+db.employees.insertMany([
     {
         name: "ocean",
         age: 45,
@@ -65,7 +65,7 @@ db.insertTest.insertMany(docs);
 ### Update One
 
 ```javascript
-db.employee.updateOne(
+db.employees.updateOne(
     { name: "river" },
     {
         $set: {
@@ -83,7 +83,7 @@ db.employee.updateOne(
 ### Update Many
 
 ```javascript
-db.employee.updateMany(
+db.employees.updateMany(
     { resignationDate: { $exists: false }, joinDate: { $exists: true } },
     {
         $mul: { salary: Decimal128("1.1") },
@@ -92,7 +92,7 @@ db.employee.updateMany(
 ```
 
 ```javascript
-db.employee.updateMany(
+db.employees.updateMany(
     { resignationDate: { $exists: false }, bonus: null },
     {
         $set: { bonus: 100000 },
@@ -103,19 +103,19 @@ db.employee.updateMany(
 ### Delete One
 
 ```javascript
-db.employee.deleteOne({ name: "river" });
+db.employees.deleteOne({ name: "river" });
 ```
 
 ### Delete Many
 
 ```javascript
-db.employee.deleteMany({});
+db.employees.deleteMany({});
 ```
 
 ### Drop Collection
 
 ```javascript
-db.employee.drop();
+db.employees.drop();
 ```
 
 ### Find All
