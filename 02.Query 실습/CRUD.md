@@ -140,7 +140,7 @@ db.planets.find({
 db.planets.find({
     $or: [
         {hasRings: {$ne: false}},
-        {surfaceTempatureC.mean: {$mod: [2, 0]}}
+        {surfaceTempatureC.mean: {$lt: 0}}
     ]
 })
 
