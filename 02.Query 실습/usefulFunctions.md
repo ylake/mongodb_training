@@ -21,8 +21,7 @@ db.bulk.bulkWrite(
 				}
 			}
 		}
-	],
-	{ordered: false}
+	]
 )
 
 
