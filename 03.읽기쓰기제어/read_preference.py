@@ -2,8 +2,8 @@ from pymongo import MongoClient
 from pymongo.read_preferences import ReadPreference
 import certifi
 
-conn = "mongodb+srv://__USER__:__PWD__@cluster0.v6fiw3s.mongodb.net/"
-# conn = "mongodb+srv://mongodb_user:mongo1234@cluster0.v6fiw3s.mongodb.net/?readPreference=secondary"
+conn = "mongodb+srv://__USER__:__PWD__@__ENDPOINT__/"
+# conn = "mongodb+srv://__USER__:__PWD__@__ENDPOINT__/?readPreference=secondary"
 client = MongoClient(conn, tlsCAFile=certifi.where())
 db = client.test
 
