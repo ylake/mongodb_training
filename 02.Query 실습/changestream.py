@@ -1,7 +1,7 @@
 import pymongo
 import certifi
 
-conn = "mongodb+srv://mongodb_user:__PWD__@cluster0.v6fiw3s.mongodb.net/"
+conn = "mongodb+srv://__USER__:__PWD__@__URI__"
 client = pymongo.MongoClient(conn, tlsCAFile=certifi.where())
 db = client.test
 
