@@ -128,7 +128,7 @@ cd ~/Downloads
 cd mongodb-macos-x86_64-5.0.12
 cd bin
 
-./mongo "mongodb://localhost:27017"
+./mongosh "mongodb://localhost:27017"
 ```
 
 #### Replica Set Initiate and Check
